@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>VUE</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/estilos.css" />
+        <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <header class="bg-success text-center text-white">
+            <span class="h2">VUE Transiciones</span>
+        </header>
+        <section class="container text-center" id="cont">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <button class="btn btn-primary" @click="mostrar = !mostrar">Mostrar/Ocultar</button>
+                    <transition appear name="parecer">
+                        <h2 v-if="mostrar" v-text="mensaje.transition"></h2>
+                    </transition>
+                    <transition name="anima">
+                        <h2 v-if="mostrar" v-text="mensaje.animacion"></h2>
+                    </transition>
+                    <!-- unu -->
+                    <transition name="anime"
+                    enter-active-class="animated rotateInDownLeft"
+                    leave-active-class="rotateOutUpRight">
+                        <h2 v-if="mostrar" v-text="mensaje.animacionCustom"></h2>
+                    </transition>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-dark text-center text-white">
+            <span class="h2">@</span>
+        </footer>
+        <script src="js/animcacion.js"></script>
+
+    </body>
+</html>
